@@ -102,8 +102,24 @@
         })
         return newArray;
       },
+      // Flatten not working yet
       flatten: function (array, shallow) {
-        
+        if (shallow === true) {
+          let flattened = [].concat.apply([], array)
+          return flattened;
+        } else {
+          fi.each(array, function(element) {
+            if (Array.isArray(element)) {
+
+            }
+
+            while (Array.isArray(element)) {
+              array[element] = [].concat.apply([], element)
+            }
+          })
+          return flattened;
+        }
+
       }
 
 
